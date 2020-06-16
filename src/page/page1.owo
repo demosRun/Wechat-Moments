@@ -1,0 +1,49 @@
+<template lang="pug">
+.page-1
+  img.pos.icon(src="@|icon.png|")
+  img.pos.bottom(src="@|bottom-bar.png|")
+  //- 微信和微信角标
+  img.pos.weixin(src="@|weixin.png|" go="page2")
+  img.num.pos(src="@|num1.png|")
+  //- 遮蔽罩
+  .blinker
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      this.query('.icon').style.top = -autoScaleInfo.hideHeight + 120 + 'px'
+      this.query('.bottom').style.bottom = -autoScaleInfo.hideHeight + 30 + 'px'
+      this.query('.weixin').style.bottom = -autoScaleInfo.hideHeight + 30 + 'px'
+      this.query('.num').style.bottom = -autoScaleInfo.hideHeight + 110 + 'px'
+    }
+  }
+</script>
+
+
+<style lang="less">
+.page-1 {
+  background-image: url('@|bg.jpg|')
+}
+.pos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.num {
+  left: 100px;
+}
+.weixin, .num {
+  z-index: 999;
+} 
+.blinker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 99;
+  left: 0;
+  top: 0;
+}
+</style>

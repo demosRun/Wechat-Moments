@@ -1,0 +1,40 @@
+<template lang="pug">
+.page-2
+  .message-box
+    .china-box
+      img.china-message(src="@|china-mess.png|")
+    img.xiaoxi(src="@|xiaoxi.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      document.querySelector('.top-bar').classList.add('black')
+      this.query('.message-box').style.top = -autoScaleInfo.hideHeight + 75 + 'px'
+    }
+  }
+</script>
+
+
+<style lang="less">
+.page-2 {
+  background-color: #ededed;
+}
+.message-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: white;
+}
+.china-box {
+  background-color: #f7f7f7;
+  padding: 0 5%;
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+.xiaoxi {
+  margin: 0 5%;
+  margin-top: 20px;
+}
+</style>
