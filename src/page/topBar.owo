@@ -18,8 +18,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 28px;
-  background-size: 97% auto;
+  height: 38px;
+  background-size: 92% auto;
   background-repeat: no-repeat;
   background-position: center;
 }

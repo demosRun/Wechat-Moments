@@ -1,9 +1,20 @@
 <template lang="pug">
 .page-2
-  .message-box
-    .china-box
-      img.china-message(src="@|china-mess.png|")
-    img.xiaoxi(src="@|xiaoxi.png|")
+  view.message-box(name="content")
+    .router-item(route="info" src="./src/route/menu1.owo")
+  .bottom-bar
+    .bottom-bar-item
+      img.ico(src="@|menu-1.svg|")
+      span 微信
+    .bottom-bar-item
+      img.ico(src="@|menu-2.svg|")
+      span 微信
+    .bottom-bar-item
+      img.ico(src="@|menu-3.svg|")
+      span 微信
+    .bottom-bar-item
+      img.ico(src="@|menu-4.svg|")
+      span 我
 </template>
 
 <script>
@@ -11,6 +22,8 @@
     created: function () {
       document.querySelector('.top-bar').classList.add('black')
       this.query('.message-box').style.top = -autoScaleInfo.hideHeight + 75 + 'px'
+      this.query('.bottom-bar').style.bottom = -autoScaleInfo.hideHeight + 0 + 'px'
+      this.query('.message-box').style.height = autoScaleInfo.showHeight - 214 + 'px'
     }
   }
 </script>
@@ -27,14 +40,27 @@
   margin: auto;
   background-color: white;
 }
-.china-box {
-  background-color: #f7f7f7;
-  padding: 0 5%;
-  padding-bottom: 25px;
-  padding-top: 20px;
-}
 .xiaoxi {
   margin: 0 5%;
   margin-top: 20px;
+}
+.bottom-bar {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  .bottom-bar-item {
+    width: 25%;
+  }
+  .ico {
+    display: block;
+    margin: 0 auto;
+  }
+  span {
+    display: block;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 60px;
+  }
 }
 </style>

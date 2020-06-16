@@ -1,0 +1,24 @@
+<template lang="pug">
+.menu-1
+  .china-box
+    img.china-message(src="@|china-mess.png|")
+  img.xiaoxi(src="@|xiaoxi.png|")
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+
+    }
+  }
+</script>
+
+
+<style lang="less">
+.china-box {
+  background-color: #f7f7f7;
+  padding: 0 5%;
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+</style>
