@@ -3,19 +3,27 @@
   img.pos.icon(src="@|icon.png|")
   img.pos.bottom(src="@|bottom-bar.png|")
   //- 微信和微信角标
-  img.pos.weixin(src="@|weixin.png|" go="page2")
-  img.num.pos(src="@|num1.png|")
+  img.pos.weixin(src="@|weixin.png|" go="page2//scaleDownCenter/scaleUpCenter&&delay400/true/scaleDownCenter/scaleUpCenter&&delay400")
+  img.num.pos(src="@|num1.png|" o-animation="shrink")
   //- 遮蔽罩
   .blinker
+    .guide.handbottom
+      .text 点击查看消息
+      img(src="@|hand.png|")
 </template>
 
 <script>
   module.exports = {
     created: function () {
+      // 显示遮蔽罩
+      setTimeout(() => {
+        this.query('.blinker').style.opacity = 1
+      }, 1000);
       this.query('.icon').style.top = -autoScaleInfo.hideHeight + 120 + 'px'
       this.query('.bottom').style.bottom = -autoScaleInfo.hideHeight + 30 + 'px'
       this.query('.weixin').style.bottom = -autoScaleInfo.hideHeight + 30 + 'px'
       this.query('.num').style.bottom = -autoScaleInfo.hideHeight + 110 + 'px'
+      this.query('.guide').style.bottom = -autoScaleInfo.hideHeight + 210 + 'px'
     }
   }
 </script>
@@ -33,6 +41,8 @@
 }
 .num {
   left: 100px;
+  user-select: none;
+  pointer-events: none;
 }
 .weixin, .num {
   z-index: 999;
@@ -45,5 +55,26 @@
   z-index: 99;
   left: 0;
   top: 0;
+  transition: opacity 1s;
+  opacity: 0;
+  
+  .guide {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 200px;
+  }
+  .text {
+    color: white;
+    line-height: 80px;
+    font-size: 34px;
+    text-align: center;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 </style>

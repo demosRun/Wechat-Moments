@@ -1,0 +1,65 @@
+<template lang="pug">
+.page-4
+  .title-bar
+    span 防疫指南
+    img.back-button(src="@|back.png|" go="page3//scaleDown/scaleUpDown/true")
+  .conn-box
+    p 疫情爆发以来，中国发起了历史上规模最大的一次全球紧急人道行动。截至5月底，中国已向将近150个国家和4个国际组织提供了紧急援助，以解各方的燃眉之急；为170多个国家举办了卫生专家专题视频会议，毫无保留地分享成熟的诊疗经验和防控方案；向24个有紧急需求的国家派遣了26支医疗专家组，面对面地开展交流和指导；在保证质量的前提下，开足马力为全球生产紧缺的医疗物资和设备，仅口罩和防护服就分别向世界出口了568亿只和2.5亿件。
+    p 面对病毒这个全人类共同的敌人，世界各国应齐心协力，携手共渡难关，而不是诿过推责，肆意散播政治病毒。
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      this.query('.title-bar').style.top = -autoScaleInfo.hideHeight + 75 + 'px'
+      this.query('.conn-box').style.top = -autoScaleInfo.hideHeight + 155 + 'px'
+      this.query('.conn-box').style.height = autoScaleInfo.showHeight - 155 + 'px'
+      document.querySelector('.page-3 .blinker').style.display = 'none'
+    },
+    show: function () {
+      document.querySelector('.top-bar').classList.add('black')
+    }
+  }
+</script>
+
+
+<style lang="less">
+.page-4 {
+  background-color: #ededed;
+}
+.conn-box {
+  position: absolute;
+  width: 92%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding: 4%;
+  line-height: 1.7;
+  text-indent: 2em;
+  color: #333;
+  font-size: 30px;
+}
+.title-bar {
+  position: absolute;
+  height: 78px;
+  width: 100%;
+  text-align: center;
+  line-height: 78px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: white;
+  border-bottom: 1px solid #988585;
+}
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 0 30px;
+}
+.message-item {
+  position: absolute;
+  right: 10px;
+  top: 100px;
+}
+</style>
