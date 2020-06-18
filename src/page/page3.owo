@@ -2,7 +2,7 @@
 .page-3
   .title-bar
     span 中国
-    img.back-button(src="@|back.png|" go="page2//scaleDown/scaleUpDown/true/scaleDown/scaleUpDown")
+    img.back-button(src="@|back.png|" go="page2/view-content=menu1/scaleDown/scaleUpDown/true/scaleDown/scaleUpDown")
   .conn-box
     img(src="@|time.png|" style=" position: absolute; left: 0; right: 0; margin: auto; top: 40px; ")
     img.message-item(src="@|message.png|" go="page4//scaleDown/scaleUpDown/true/scaleDown/scaleUpDown")

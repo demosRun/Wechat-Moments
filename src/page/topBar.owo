@@ -7,7 +7,9 @@
   module.exports = {
     created: function () {
       var myDate = new Date();
-      this.$el.innerText = `${myDate.getHours() + 1}:${myDate.getMinutes()}`
+      let mini = myDate.getMinutes()
+      if (mini < 10) mini = '0' + mini
+      this.$el.innerText = `${myDate.getHours() + 1}:${mini}`
     }
   }
 </script>

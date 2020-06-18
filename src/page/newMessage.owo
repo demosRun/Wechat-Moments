@@ -1,0 +1,41 @@
+<template lang="pug">
+//- 新消息
+.new-message(o-tap="hideMessage")
+  img(src="@|new-message.png|")
+</template>
+
+<script>
+  module.exports = {
+    hideMessage: function () {
+      this.$el.style.top = '-80px'
+      setTimeout(() => {
+        // .blinker-text
+        document.querySelector('.blinker-text').style.display = "block"
+        setTimeout(() => {
+          document.querySelector('.blinker-text').style.opacity = "1"
+          bgMusic.pause()
+          bgMusic = new Audio("./static/resource/bg2.mp3")
+          bgMusic.loop = true
+          bgMusic.volume = 0.1
+          bgMusic.play()
+          owo.tool.typing(document.querySelector('.blinker-text p'), '&emsp;&emsp;疫情爆发以来，中国发起了历史上规模最大的一次全球紧急人道行动。截至5月底，中国已向将近150个国家和4个国际组织提供了紧急援助，以解各方的燃眉之急；为170多个国家举办了卫生专家专题视频会议，毫无保留地分享成熟的诊疗经验和防控方案；向24个有紧急需求的国家派遣了26支医疗专家组，面对面地开展交流和指导；在保证质量的前提下，开足马力为全球生产紧缺的医疗物资和设备，仅口罩和防护服就分别向世界出口了568亿只和2.5亿件。<br>&emsp;&emsp;面对病毒这个全人类共同的敌人，世界各国应齐心协力，携手共渡难关，而不是诿过推责，肆意散播政治病毒。')
+        }, 0);
+      }, 0);
+    }
+  }
+</script>
+
+<style lang="less">
+.new-message {
+  position: fixed;
+  top: -70px;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: top 1s;
+}
+img {
+  width: 100%;
+}
+</style>

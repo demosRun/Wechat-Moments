@@ -92,9 +92,18 @@
 			"src": "./owo_modules/toast.js"
 		},
 		{
+			"name": "smartphoto",
+			"src": "https://cunchu.site/ozzx/script/smartphoto.js"
+		},
+		{
 			"name": "heart",
 			"afterbody": true,
 			"src": "./owo_modules/heart.js"
+		},
+		{
+			"name": "typing",
+			"afterbody": true,
+			"src": "./owo_modules/typing.js"
 		}
 	],
 	"styleList": [
@@ -102,12 +111,21 @@
 			"name": "main",
 			"src": "./src/main.css",
 			"resource": true
+		},
+		{
+			"name": "smartphoto",
+			"src": "https://cunchu.site/ozzx/style/smartphoto.css"
 		}
 	],
 	"pageList": [
 		{
 			"name": "loading",
 			"src": "https://template.owo.ink/855f7873bfb2014c.owo",
+			"type": "page"
+		},
+		{
+			"name": "first",
+			"src": "./src/page/first.owo",
 			"type": "page"
 		},
 		{
@@ -133,6 +151,16 @@
 		{
 			"name": "topBar",
 			"src": "./src/page/topBar.owo",
+			"type": "block"
+		},
+		{
+			"name": "newMessage",
+			"src": "./src/page/newMessage.owo",
+			"type": "block"
+		},
+		{
+			"name": "blinkerText",
+			"src": "./src/page/blinkerText.owo",
 			"type": "block"
 		}
 	],

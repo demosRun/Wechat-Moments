@@ -6,23 +6,20 @@
     //- 遮蔽罩
   .blinker
     .guide.handbottom
-      img(src="@|hand.png|")
       .text 点击查看消息
+      img(src="@|hand.png|")
+      
 </template>
 
 <script>
   module.exports = {
     created: function () {
-      // 显示遮蔽罩
+      this.query('.guide').style.bottom = -autoScaleInfo.hideHeight + 20  + 'px'
       setTimeout(() => {
         this.query('.blinker').style.opacity = 1
       }, 1000);
-      this.query('.guide').style.top = -autoScaleInfo.hideHeight + 230 + 'px'
     },
     goPage3: function () {
-      setTimeout(() => {
-        document.querySelector('.page-2 .blinker').style.display = 'none'
-      }, 1000);
       owo.go('page3//scaleDown/scaleUpDown/true')
     }
   }
@@ -39,7 +36,6 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 999;
   transform: translate3d(0, 0, 0);
 }
 .blinker {
@@ -55,7 +51,7 @@
   
   .guide {
     position: absolute;
-    left: 0;
+    left: 180px;
     right: 0;
     margin: auto;
     width: 300px;
@@ -70,7 +66,6 @@
   img {
     display: block;
     margin: 0 auto;
-    transform:rotate(180deg);
   }
 }
 </style>
