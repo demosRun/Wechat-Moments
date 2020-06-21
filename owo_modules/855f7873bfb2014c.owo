@@ -1,0 +1,135 @@
+<template lang="pug">
+.loading-box
+  img.loading(src="@|loading.png|")
+  .loading-bar
+    .num-bar
+  .num 0%
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      imgList: [
+        "@|back.png|",
+        "@|bg.jpg|",
+        "@|bjst.png|",
+        "@|bottom-bar.png|",
+        "@|china-mess.png|",
+        "@|dg.png|",
+        "@|hand.png|",
+        "@|heart.png|",
+        "@|heart-active.png|",
+        "@|icon.png|",
+        "@|lhg.png|",
+        "@|liaotian-bg.jpg|",
+        "@|loading-bg.jpg|",
+        "@|message.png|",
+        "@|num1.png|",
+        "@|om.png|",
+        "@|pyqbg.jpg|",
+        "@|time.png|",
+        "@|top-bar.png|",
+        "@|top-bar-black.png|",
+        "@|weixin.png|",
+        "@|xiaoxi.png|",
+        "@|yg.png|",
+        "@|zg.png|",
+      ]
+    },
+    show: function () {
+      const mum = owo.query('.num')[0]
+      const numBar = owo.query('.num-bar')[0]
+      this.preloadImages(this.data.imgList, (e) => {
+        setTimeout(() => {
+          owo.go('page1////true')
+        }, 500)
+      }, (num) => {
+        numBar.style.width = num + '%'
+        mum.innerHTML = num + '%'
+      })
+    },
+    preloadImage: function (src, successFn) {
+      var image = new Image()
+      image.src = src
+      image.onload = function () {
+        successFn && successFn(src)
+      }
+      image.onerror = function (error) {
+        successFn && successFn(src)
+      }
+    },
+    preloadImages: function (srcs, doneFn, progressFn) {
+      if (!Array.isArray(srcs)) {
+        console.log('第一个参数只能是一个数组')
+      } else {
+        var allCount = srcs.length
+        var doneCount = 0
+        srcs.forEach((srcItem) => {
+          this.preloadImage(srcItem, function () {
+            doneCount++
+            progressFn && progressFn(Math.ceil(100 * doneCount / allCount))
+            if (doneCount === allCount) {
+              doneFn && doneFn()
+            }
+          })
+        })
+      }
+    }
+  }
+</script>
+
+
+<style lang="less">
+.loading-box {
+  width: 100%;
+  height: 100%;
+  background-image: url('@|loading-bg.jpg|');
+}
+.loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16%;
+  bottom: 0;
+  margin: auto;
+  animation: rotate 3s linear infinite;
+}
+.loading-bar {
+  position: absolute;
+  top: 10%;
+  bottom: 0%;
+  height: 18px;
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+  padding: 10px;
+}
+.num-bar {
+  background-color: #da4041;
+  height: 18px;
+  border-radius: 7px;
+  width: 0%;
+}
+.num, .text {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  margin: auto;
+  line-height: 50px;
+  height: 50px;
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.text {
+  bottom: -14%;
+}
+@keyframes rotate{from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
+</style>
